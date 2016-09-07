@@ -20,6 +20,6 @@ node {
        variable      : 'KEYSTORE',
       ],
     ]) {
-        gradle clean assembleRelease
+        sh "KSTOREPWD=${env.KSTOREPWD} KEYPWD=${env.KEYPWD} KEYSTORE=${env.KEYSTORE} ./gradlew clean assembleRelease"
     }
 }
