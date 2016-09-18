@@ -3,7 +3,6 @@
 node {
     stage 'Build'
     checkout scm
-    env.LD_LIBRARY_PATH = '/var/jenkins_home/tools/android-sdk/tools/lib'
     withCredentials([
       [
        $class        : 'StringBinding',
@@ -21,7 +20,7 @@ node {
        variable      : 'KEYSTORE',
       ],
     ]) {
-        withEnv(["KSTOREPWD=${env.KSTOREPWD}", "KEYPWD=${env.KEYPWD}", "KEYSTORE=${env.KEYSTORE}", "LD_LIBRARY_PATH=/var/jenkins_home/tools/android-sdk/tools/lib"]) {
+        withEnv(["KSTOREPWD=${env.KSTOREPWD}", "KEYPWD=${env.KEYPWD}", "KEYSTORE=${env.KEYSTORE}", "LD_LIBRARY_PATH=/var/jenkins_home/tools/android-sdk/tools/lib", "ANDROID_HOME=/var/jenkins_home/tools/android-sdk"]) {
             sh "./gradlew clean assembleRelease"
         }
     }
