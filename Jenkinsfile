@@ -1,6 +1,7 @@
 #!groovy
 
 node {
+    stage 'Build'
     checkout scm
     env.LD_LIBRARY_PATH = '/var/jenkins_home/tools/android-sdk/tools/lib'
     withCredentials([
