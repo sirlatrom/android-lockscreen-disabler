@@ -20,6 +20,8 @@ node {
        variable      : 'KEYSTORE',
       ],
     ]) {
-        sh "KSTOREPWD=${env.KSTOREPWD} KEYPWD=${env.KEYPWD} KEYSTORE=${env.KEYSTORE} ./gradlew clean assembleRelease"
+        withEnv(["KSTOREPWD=${env.KSTOREPWD}", "KEYPWD=${env.KEYPWD}", "KEYSTORE=${env.KEYSTORE}"]) {
+            sh "./gradlew clean assembleRelease"
+        }
     }
 }
