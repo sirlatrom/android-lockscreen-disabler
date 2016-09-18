@@ -21,7 +21,7 @@ node {
        variable      : 'KEYSTORE',
       ],
     ]) {
-        withEnv(["KSTOREPWD=${env.KSTOREPWD}", "KEYPWD=${env.KEYPWD}", "KEYSTORE=${env.KEYSTORE}"]) {
+        withEnv(["KSTOREPWD=${env.KSTOREPWD}", "KEYPWD=${env.KEYPWD}", "KEYSTORE=${env.KEYSTORE}", "LD_LIBRARY_PATH=/var/jenkins_home/tools/android-sdk/tools/lib"]) {
             sh "./gradlew clean assembleRelease"
         }
     }
