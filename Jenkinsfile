@@ -24,4 +24,7 @@ node {
             sh "./gradlew clean assembleRelease"
         }
     }
+    archiveArtifacts artifacts: 
+    'app/build/outputs/apk/app-release.apk', excludes: null, 
+    fingerprint: true, onlyIfSuccessful: true
 }
